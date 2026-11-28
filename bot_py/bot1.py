@@ -100,7 +100,7 @@ def handle_start(message):
         reply_markup=keyboard
     )
 
-
+#-------------------------
 @bot.message_handler(commands=["help"])
 def handle_help(message):
     bot.send_message(
@@ -109,7 +109,7 @@ def handle_help(message):
         reply_markup=keyboard
     )
 
-
+#-------------------------
 @bot.message_handler(commands=["quest"])
 def handle_quest(message):
     task = random.choice(QUEST_TASKS)
@@ -119,7 +119,7 @@ def handle_quest(message):
         f"🗺️ Твоє завдання:\n\n{task}"
     )
 
-
+#-------------------------
 # Inventory with two command names
 @bot.message_handler(commands=["inventory", "bag"])
 def handle_inventory(message):
@@ -131,8 +131,8 @@ def handle_inventory(message):
 
     bot.send_message(message.chat.id, inventory_text)
 
-
-# New: Riddle command
+#-------------------------
+# Riddle command
 @bot.message_handler(commands=["riddle"])
 def handle_riddle(message):
     riddle = random.choice(RIDDLES)
@@ -142,8 +142,8 @@ def handle_riddle(message):
         riddle
     )
 
-
-# New: Dice command
+# ------------------------
+# Dice command
 @bot.message_handler(commands=["dice"])
 def handle_dice(message):
     number = random.randint(1, 6)
@@ -153,8 +153,8 @@ def handle_dice(message):
         f"🎲 Кубик долі показав: {number}! Твоя удача зростає."
     )
 
-
-# New: Gift command with an argument
+#-------------------------
+# Gift command with an argument
 @bot.message_handler(commands=["gift"])
 def handle_gift(message):
     parts = message.text.split(maxsplit=1)
